@@ -3,6 +3,8 @@ import pygame as pg
 from . import ALTO, ANCHO
 from .escenas import Portada, Partida, MejoresJugadores
 
+# Con un . subimos al archivo de arriba y por lo tanto nos sirve para evitar tener que poner el nombre de los directorios
+
 
 class Arkanoid:
     def __init__(self):
