@@ -1,3 +1,4 @@
+import os
 import pygame as pg
 from arkanoid import ALTO, ANCHO
 from arkanoid.escenas import Portada, Partida, MejoresJugadores
@@ -7,6 +8,12 @@ class Arkanoid:
     def __init__(self):
         pg.init()
         self.pantalla = pg.display.set_mode((ANCHO, ALTO))
+        pg.display.set_caption("Arkanoid BZ Version")
+
+        # Mac: resources/images/icon.png
+        ruta = os.path.join("resources", "images", "icon.png")
+        icono = pg.image.load(ruta)
+        pg.display.set_icon(icono)
 
         objeto_portada = Portada(self.pantalla)
         objeto_partida = Partida(self.pantalla)
