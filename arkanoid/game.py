@@ -1,7 +1,7 @@
 import os
 import pygame as pg
-from arkanoid import ALTO, ANCHO
-from arkanoid.escenas import Portada, Partida, MejoresJugadores
+from . import ALTO, ANCHO
+from .escenas import Portada, Partida, MejoresJugadores
 
 
 class Arkanoid:
