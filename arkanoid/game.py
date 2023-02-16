@@ -3,8 +3,6 @@ import pygame as pg
 from . import ALTO, ANCHO
 from .escenas import Portada, Partida, MejoresJugadores
 
-# Con un . subimos al archivo de arriba y por lo tanto nos sirve para evitar tener que poner el nombre de los directorios
-
 
 class Arkanoid:
     def __init__(self):
@@ -12,7 +10,8 @@ class Arkanoid:
         self.pantalla = pg.display.set_mode((ANCHO, ALTO))
         pg.display.set_caption("Arkanoid BZ Version")
 
-        # Mac: resources/images/icon.png
+        # Windows: resources\images\icon.png
+        # Mac/Linux: resources/images/icon.png
         ruta = os.path.join("resources", "images", "icon.png")
         icono = pg.image.load(ruta)
         pg.display.set_icon(icono)
@@ -38,4 +37,9 @@ class Arkanoid:
     def jugar(self):
         """Este es el bucle principal"""
         for escena in self.escenas:
-            escena.bucle_principal()
+            he_acabado = escena.bucle_principal()
+            if he_acabado:
+                # return
+                break
+        print("He acabado el for")
+        pg.quit()
